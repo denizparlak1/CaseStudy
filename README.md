@@ -33,7 +33,8 @@ Sol tarafta, import ettiğiniz collection'ı görebilirsiniz. Bu collection içe
 İstediğiniz bir request'i seçin ve "Send" butonuna tıklayarak isteği gönderin.
 
 Postman Collection'ını docs klasöründe bulabilirsiniz. Bu collection, uygulamanın tüm endpoint'lerini ve nasıl kullanılacağını gösteren örnek istekleri içermektedir.
-[Postman Collection](./docs/[Case.postman_collection.json])
+[Postman Collection](./docs/Case.postman_collection.json)
+
 
 1. Deploy edilmiş demo URL;
    ```bash
