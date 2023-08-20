@@ -33,7 +33,12 @@ Sol tarafta, import ettiğiniz collection'ı görebilirsiniz. Bu collection içe
 İstediğiniz bir request'i seçin ve "Send" butonuna tıklayarak isteği gönderin.
 
 Postman Collection'ını docs klasöründe bulabilirsiniz. Bu collection, uygulamanın tüm endpoint'lerini ve nasıl kullanılacağını gösteren örnek istekleri içermektedir.
+[Postman Collection](./docs/[Case.postman_collection.json])
 
+1. Deploy edilmiş demo URL;
+   ```bash
+   http://13.51.146.64:8000
+   
 ### 🏗 Mimari Şema
 Bu projede kullanılan mimari, modern web uygulamalarının gereksinimlerini karşılamak üzere tasarlanmıştır. Şemada görebileceğiniz üzere, uygulama Docker üzerinde çalışmaktadır, bu sayede platformdan bağımsız olarak kolayca dağıtılabilir ve ölçeklenebilir. Gunicorn, uygulamanın WSGI sunucusu olarak hizmet verirken, Flask ise web framework olarak kullanılmıştır. Veritabanı bağlantısı için MongoDB kullanılmıştır ve bu bağlantı, uygulama içerisinden bir ortam değişkeni ile sağlanmaktadır.
 Performans ve güvenlik geliştirmeleri case çalışması dahilinde ön planda tutulmamıştır.
