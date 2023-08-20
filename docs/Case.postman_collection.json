@@ -148,6 +148,45 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get All Cards",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Filo",
+						"value": "hergele",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "denizparlak1",
+						"type": "default"
+					},
+					{
+						"key": "UserNo",
+						"value": "1",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/payment/get-all-cards",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"payment",
+						"get-all-cards"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
