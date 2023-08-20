@@ -1,6 +1,6 @@
 import datetime
 import random
-from .mongo import Mongo
+from db.mongo.config.mongo import Mongo
 
 
 class CardManager:

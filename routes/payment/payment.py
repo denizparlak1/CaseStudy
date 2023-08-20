@@ -1,19 +1,26 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, abort
 
 from db.mongo.card_manager import CardManager
 
 payment = Blueprint('payment', __name__)
 
 
+@payment.before_request
+def check_auth_and_filo():
+    authorization = request.headers.get('Authorization')
+    filo = request.headers.get('Filo')
+
+    if authorization != "denizparlak1" or filo != "hergele":
+        abort(403, description="Yetkisiz erişim.")
+
+
 @payment.route('/add-card', methods=['POST'])
 def add_card():
     card_info = request.json
 
-    authorization = request.headers.get('Authorization')
-    filo = request.headers.get('Filo')
     user_no = request.headers.get('UserNo')
 
-    if not all([authorization, filo, user_no]):
+    if not user_no:
         return jsonify({"error": "Header bilgileri eksik."}), 400
 
     required_fields = ["cardNo", "expiryMonth", "expiryYear", "cvc"]
@@ -35,13 +42,9 @@ def withdraw():
     data = request.json
     amount = data.get("amount")
 
-    # Header'dan gerekli bilgileri al
-    authorization = request.headers.get('Authorization')
-    filo = request.headers.get('Filo')
     user_no = request.headers.get('UserNo')
 
-    # Eğer header'da belirtilen bilgiler eksikse hata döndür
-    if not all([authorization, filo, user_no]):
+    if not user_no:
         return jsonify({"error": "Header bilgileri eksik."}), 400
 
     if not amount or amount <= 0:
@@ -50,7 +53,7 @@ def withdraw():
     try:
         new_balance = CardManager.withdraw_from_card(user_no, amount)
         return jsonify({
-                           "message": f"{user_no} numaralı kullanıcıdan {amount} miktarında para çekildi. Yeni bakiye: {new_balance}"}), 200
+            "message": f"{user_no} numaralı kullanıcıdan {amount} miktarında para çekildi. Yeni bakiye: {new_balance}"}), 200
     except ValueError as ve:
         return jsonify({"error": str(ve)}), 400
     except Exception as e:
@@ -61,11 +64,9 @@ def withdraw():
 def refund():
     amount = request.json.get("amount")
 
-    authorization = request.headers.get('Authorization')
-    filo = request.headers.get('Filo')
     user_no = request.headers.get('UserNo')
 
-    if not all([authorization, filo, user_no]):
+    if not user_no:
         return jsonify({"error": "Header bilgileri eksik."}), 400
 
     try:
@@ -77,11 +78,9 @@ def refund():
 
 @payment.route('/get-all-cards', methods=['POST'])
 def get_all_cards():
-    authorization = request.headers.get('Authorization')
-    filo = request.headers.get('Filo')
     user_no = request.headers.get('UserNo')
 
-    if not all([authorization, filo, user_no]):
+    if not user_no:
         return jsonify({"error": "Header bilgileri eksik."}), 400
 
     try:

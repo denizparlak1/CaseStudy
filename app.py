@@ -1,6 +1,5 @@
-import os
 from flask import Flask
-from db.mongo.mongo import Mongo
+from db.mongo.config.mongo import Mongo
 from routes.payment.payment import payment
 from dotenv import load_dotenv
 

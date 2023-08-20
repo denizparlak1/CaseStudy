@@ -3,7 +3,10 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 
 load_dotenv()
+
+
 class Mongo:
+    # Singleton
     _instance = None
 
     def __new__(cls, app=None):
