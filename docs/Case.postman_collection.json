@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "c48ca2ce-8116-451c-b8f9-44112168453a",
+		"name": "Case",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Refund",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "123",
+						"type": "default"
+					},
+					{
+						"key": "Filo",
+						"value": "hergele",
+						"type": "default"
+					},
+					{
+						"key": "UserNo",
+						"value": "1",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\":50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/payment/refund",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"payment",
+						"refund"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "deniz123",
+						"type": "default"
+					},
+					{
+						"key": "Filo",
+						"value": "hergele",
+						"type": "default"
+					},
+					{
+						"key": "userNo",
+						"value": "1",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/payment/withdraw",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"payment",
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Card",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Filo",
+						"value": "hergele",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "denizparlak1",
+						"type": "default"
+					},
+					{
+						"key": "UserNo",
+						"value": "1",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cardNo\": \"5218071086791479\",\n    \"expiryMonth\": \"12\",\n    \"expiryYear\": \"25\",\n    \"cvc\": \"123\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/payment/add-card",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"payment",
+						"add-card"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
